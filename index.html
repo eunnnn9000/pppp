@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+  </head>
+  <style>
+     #link{margin-top: 0px;margin-right:0px;float:right;padding:10px;text-decoration: none;}
+      body{background-color: darkgray;color:black;}
+    #containers{display: flex;flex-direction:column;}
+    .container1{width:1250px;
+        height:150px;margin:40px;border:2px solid lightgray;
+        background-color: lightgray;}
+    .container1special{border:2px solid white;
+        background-color: white;top:0;position: sticky;}
+    #choose{font-family: Arial, Helvetica, sans-serif;color:gray;font-family: 20px;}
+    #fname{margin-left:60px;width:800px;}
+    #submit{float:right;margin-right:80px;border:1px solid lightgrey;color:green;
+    font-size: 15px;}
+    #value{width:1000px;}
+    .container3{background-color: white;border:1px solid white;}
+  </style>
+  <body>
+      <div id="containers">
+<div class="container1special"> <h1  id="choose">whysoserious45<h1>
+    <p style="font-size:50px;">Trying to decide a career path? Programming is the move. <br>Change my mind.</p>
+</div>
+
+<div class="container1"> <i class='fas fa-user-circle' style='font-size:48px;color:white;margin-left:20px;margin-top:30px'></i>great<a href="#" id="link">delete</a>
+    <a href ="#"id="link">edit</a></div>
+<div class="container1">
+    <i class='fas fa-user-circle' style='font-size:48px;color:white;margin-left: 20px;margin-top:30px'></i> enough said preach<a href="#" id="link">delete</a><a href ="#"id="link">edit</a></div>
+<div class="container1">
+    <i class='fas fa-user-circle' style='font-size:
+    48px;color:white;margin-left:20px;margin-top:30px'></i> 
+    <span id="textContent">greatwhy would i change your mind it is a fast g
+      rowing out there</span>
+    <div class="input">
+    <input type="text" id="fname" 
+    name="firstname" placeholder="why would I change your mind"></div>
+    <input type="submit" id="submit" value="submit">
+    <a href="#" id="delete-button">delete</a><a href ="#"id="editbutton">edit</a>
+    </div>
+<div class="container1">
+    <i class='fas fa-user-circle' style='font-size:48px;color:white;margin-left: 20px;margin-top:30px'></i> hard to argue with that
+<a href="#" id="link">delete</a><a href ="#"id="link">edit</a></div>
+<div class="container3">
+  <form id="form">
+    <input type="text"  value="display your name" id="name"></input>
+    <input type="text" value="comment" id="value"></input>
+    <input type="submit" id="submit-button"></input></form>
+    <div id="output"></div>
+</div>
+
+
+</div>
+  </body>
+    
+  <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+  <script src="app.js">
+ 
+
+  </script>
+  <script type="text/javascript">
+    
+  
+    $(document).ready(function() {
+$('#form').submit(function(event) {
+event.preventDefault();
+
+var name = $('#name').val();
+var comment = $('#value').val();
+
+$('#output').html('<p>Name: ' + name + '</p><p>Comment: ' + comment + '</p>');
+
+$('#name').val('');
+$('#value').val('');
+});
+
+$('#delete-button').on("click", function() {
+$('#fname').val("");
+});
+
+
+$('#editbutton').on("click", function() {
+  var newValue=$('#fname').val();
+
+  $('#fname').removeAttr('placeholder');
+  $('#fname').show(newValue);
+  
+
+})});
+    
+ $('#submit').click(function() {
+   var newText = $('#fname').val();
+  $('#textContent').text(newText);
+  $('.input').show();
+ $('#textContent').show();
+    });
+
+  </script>
+</html>
